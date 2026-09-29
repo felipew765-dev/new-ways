@@ -6,8 +6,7 @@ if (form) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    if (!form.reportValidity()) {
       message.textContent = "Revise os campos destacados antes de enviar.";
       message.style.color = "#b24b4b";
       return;
