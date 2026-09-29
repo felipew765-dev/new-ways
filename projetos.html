@@ -7,15 +7,16 @@
 <body>
 <header class="site-header"><div class="container header-inner">
 <a class="brand" href="index.html"><span class="brand-mark">NC</span><span>Projeto Novos Caminhos</span></a>
-<nav aria-label="Navegação principal"><a href="index.html">Início</a><a class="active" href="projetos.html">Projetos</a><a href="cadastro.html">Participe</a></nav>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span></button>
+<nav id="menu-principal" class="site-nav" aria-label="Navegação principal"><a href="index.html">Início</a><div class="nav-item has-dropdown"><a class="active" href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos</a><ul class="nav-dropdown" aria-label="Submenu Projetos"><li><a href="projetos.html#educacao">Educação</a></li><li><a href="projetos.html#comunidade">Comunidade</a></li><li><a href="projetos.html#voluntariado">Voluntariado</a></li></ul></div><a href="cadastro.html">Participe</a></nav>
 </div></header>
 <main>
 <section class="page-hero"><div class="container narrow"><span class="eyebrow">Nossos projetos</span><h1>Ações que aproximam pessoas de novas oportunidades.</h1><p>Conheça nossas principais frentes e descubra como apoiar cada iniciativa.</p></div></section>
 <section class="section"><div class="container">
 <div class="project-list">
-<article class="project"><div class="project-number">01</div><div><span class="tag">Educação</span><h2>Conexão para o Futuro</h2><p>Oficinas de tecnologia, comunicação e preparação profissional para jovens e adultos.</p><ul><li>Encontros formativos</li><li>Mentoria voluntária</li><li>Materiais digitais gratuitos</li></ul></div></article>
-<article class="project"><div class="project-number">02</div><div><span class="tag">Comunidade</span><h2>Rede de Apoio</h2><p>Ações colaborativas que conectam moradores, parceiros e serviços de apoio local.</p><ul><li>Campanhas comunitárias</li><li>Mobilização de parceiros</li><li>Distribuição de recursos</li></ul></div></article>
-<article class="project"><div class="project-number">03</div><div><span class="tag">Voluntariado</span><h2>Tempo que Transforma</h2><p>Programa para pessoas que desejam contribuir com conhecimento, tempo ou habilidades.</p><ul><li>Voluntariado presencial</li><li>Apoio remoto</li><li>Mentoria e oficinas</li></ul></div></article>
+<article class="project" id="educacao"><div class="project-number">01</div><div><span class="tag">Educação</span><h2>Conexão para o Futuro</h2><p>Oficinas de tecnologia, comunicação e preparação profissional para jovens e adultos.</p><ul><li>Encontros formativos</li><li>Mentoria voluntária</li><li>Materiais digitais gratuitos</li></ul></div></article>
+<article class="project" id="comunidade"><div class="project-number">02</div><div><span class="tag">Comunidade</span><h2>Rede de Apoio</h2><p>Ações colaborativas que conectam moradores, parceiros e serviços de apoio local.</p><ul><li>Campanhas comunitárias</li><li>Mobilização de parceiros</li><li>Distribuição de recursos</li></ul></div></article>
+<article class="project" id="voluntariado"><div class="project-number">03</div><div><span class="tag">Voluntariado</span><h2>Tempo que Transforma</h2><p>Programa para pessoas que desejam contribuir com conhecimento, tempo ou habilidades.</p><ul><li>Voluntariado presencial</li><li>Apoio remoto</li><li>Mentoria e oficinas</li></ul></div></article>
 </div>
 </div></section>
 <section class="section soft"><div class="container two-col">
@@ -28,4 +29,5 @@
 </div></section>
 </main>
 <footer class="site-footer"><div class="container footer-grid"><div><strong>Projeto Novos Caminhos</strong><p>Inclusão, educação e oportunidades.</p></div><div><strong>Contato</strong><p>contato@projetonovoscaminhos.org<br>(11) 99999-9999</p></div><div><strong>Localização</strong><p>São Paulo : SP</p></div></div><div class="container footer-bottom"><span>© 2026 Projeto Novos Caminhos</span><span>Site acadêmico demonstrativo</span></div></footer>
+<script src="js/script.js"></script>
 </body></html>

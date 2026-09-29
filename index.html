@@ -11,9 +11,21 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html"><span class="brand-mark">NC</span><span>Projeto Novos Caminhos</span></a>
-    <nav aria-label="Navegação principal">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
       <a class="active" href="index.html">Início</a>
-      <a href="projetos.html">Projetos</a>
+      <div class="nav-item has-dropdown">
+        <a href="projetos.html" aria-haspopup="true" aria-expanded="false">Projetos</a>
+        <ul class="nav-dropdown" aria-label="Submenu Projetos">
+          <li><a href="projetos.html#educacao">Educação</a></li>
+          <li><a href="projetos.html#comunidade">Comunidade</a></li>
+          <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+        </ul>
+      </div>
       <a href="cadastro.html">Participe</a>
     </nav>
   </div>
@@ -65,5 +77,6 @@
   </div>
   <div class="container footer-bottom"><span>© 2026 Projeto Novos Caminhos</span><span>Site acadêmico demonstrativo</span></div>
 </footer>
+<script src="js/script.js"></script>
 </body>
 </html>

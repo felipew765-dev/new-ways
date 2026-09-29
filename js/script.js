@@ -1,3 +1,74 @@
+
+const DRAFT_KEY = "novos-caminhos-cadastro-draft";
+
+function saveDraft(formEl) {
+  if (!formEl) return;
+  const data = {};
+  formEl.querySelectorAll("input, select, textarea").forEach((el) => {
+    if (!el.name || el.type === "password" || el.type === "checkbox") return;
+    data[el.name] = el.value;
+  });
+  const consent = formEl.querySelector("input[type=checkbox]");
+  if (consent) data[consent.name || "consent"] = consent.checked;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+  } catch (error) {
+    // armazenamento indisponivel
+  }
+}
+
+function restoreDraft(formEl) {
+  if (!formEl) return;
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    Object.entries(data).forEach(([name, value]) => {
+      const el = formEl.elements.namedItem(name);
+      if (!el) return;
+      if (el.type === "checkbox") el.checked = Boolean(value);
+      else el.value = value;
+    });
+  } catch (error) {
+    // rascunho invalido
+  }
+}
+
+function clearDraft() {
+  try {
+    localStorage.removeItem(DRAFT_KEY);
+  } catch (error) {
+    // ignore
+  }
+}
+
+
+function initNav() {
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector("#menu-principal");
+  if (!header || !toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    const open = header.classList.toggle("is-nav-open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  });
+
+  nav.querySelectorAll(".has-dropdown > a").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (window.matchMedia("(max-width: 800px)").matches) {
+        event.preventDefault();
+        const item = link.parentElement;
+        const open = item.classList.toggle("is-open");
+        link.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+    });
+  });
+}
+
+initNav();
+
 const form = document.querySelector("#cadastroForm");
 const message = document.querySelector("#formMessage");
 const cepStatus = document.querySelector("#cepStatus");
@@ -81,6 +152,8 @@ async function lookupCep(cepInput) {
 }
 
 if (form) {
+  restoreDraft(form);
+  form.addEventListener("input", () => saveDraft(form));
   applyMask(form.querySelector("#cpf"), "cpf");
   applyMask(form.querySelector("#telefone"), "telefone");
   applyMask(form.querySelector("#cep"), "cep");
@@ -95,14 +168,15 @@ if (form) {
 
     if (!form.reportValidity()) {
       message.textContent = "Revise os campos destacados antes de enviar.";
-      message.style.color = "#b24b4b";
+      message.className = "form-message is-error";
       return;
     }
 
     message.textContent =
       "Cadastro validado com sucesso! Esta demonstração não envia dados para um servidor.";
-    message.style.color = "#176b4b";
+    message.className = "form-message is-success";
     if (cepStatus) cepStatus.textContent = "";
     form.reset();
+    clearDraft();
   });
 }

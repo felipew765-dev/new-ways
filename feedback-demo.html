@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Projeto Novos Caminhos | Feedback UI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">NC</span><span>Projeto Novos Caminhos</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="cadastro.html">Participe</a>
+    </nav>
+  </div>
+</header>
+<main class="section">
+  <div class="container narrow">
+    <span class="eyebrow">Componentes de feedback</span>
+    <h1>Badges, alertas, toast e modal</h1>
+    <p>Demonstração dos estados visuais usados na plataforma do Projeto Novos Caminhos.</p>
+    <div class="feedback-demo">
+      <div class="info-box">
+        <h2>Badges / etiquetas</h2>
+        <div class="feedback-row">
+          <span class="badge badge-success">Ativo</span>
+          <span class="badge badge-info">Voluntariado</span>
+          <span class="badge badge-warn">Em análise</span>
+          <span class="badge badge-danger">Urgente</span>
+          <span class="tag">Educação</span>
+        </div>
+      </div>
+      <div class="info-box">
+        <h2>Alertas</h2>
+        <div class="alert alert-success" role="status">Cadastro validado com sucesso. Em breve a equipe entrará em contato.</div>
+        <div class="alert alert-error" role="alert">Revise os campos destacados antes de enviar o formulário.</div>
+      </div>
+      <div class="info-box">
+        <h2>Ações</h2>
+        <div class="feedback-row">
+          <button class="btn primary" type="button" id="openToast">Mostrar toast</button>
+          <button class="btn secondary" type="button" id="openModal">Abrir modal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="toast" id="demoToast" role="status" aria-live="polite"><strong>Inscrição recebida</strong>Obrigado por apoiar o Projeto Novos Caminhos.</div>
+<div class="modal-backdrop" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <h2 id="modalTitle">Confirmar participação</h2>
+    <p>Deseja confirmar o interesse em atuar como voluntário nesta iniciativa?</p>
+    <div class="modal-actions">
+      <button class="btn secondary" type="button" id="closeModal">Cancelar</button>
+      <button class="btn primary" type="button" id="confirmModal">Confirmar</button>
+    </div>
+  </div>
+</div>
+<script src="js/script.js"></script>
+<script>
+  const toast = document.getElementById("demoToast");
+  const modal = document.getElementById("demoModal");
+  document.getElementById("openToast").addEventListener("click", () => {
+    toast.classList.add("is-visible");
+    setTimeout(() => toast.classList.remove("is-visible"), 4000);
+  });
+  document.getElementById("openModal").addEventListener("click", () => modal.classList.add("is-open"));
+  document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("is-open"));
+  document.getElementById("confirmModal").addEventListener("click", () => {
+    modal.classList.remove("is-open");
+    toast.classList.add("is-visible");
+    setTimeout(() => toast.classList.remove("is-visible"), 4000);
+  });
+  // auto-open for screenshot capture when ?show=all
+  const params = new URLSearchParams(location.search);
+  if (params.get("show") === "modal") modal.classList.add("is-open");
+  if (params.get("show") === "toast") toast.classList.add("is-visible");
+</script>
+</body>
+</html>

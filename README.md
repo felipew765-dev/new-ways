@@ -1,19 +1,24 @@
 # Projeto Novos Caminhos
 
-work-facul
+Projeto academico de front-end para as Experiencias Praticas de Desenvolvimento Front-End Para Web.
 
-Projeto acadêmico de front-end desenvolvido para a Experiência Prática I.
+Repositorio: https://github.com/felipew765-dev/new-ways
 
 ## Estrutura
-- index.html : página inicial
-- projetos.html : projetos, doações e voluntariado
-- cadastro.html : formulário de cadastro
-- css/style.css : estilos e responsividade
-- js/script.js : validação e comportamento do formulário
-- assets/images/ : imagens em PNG/JPG
+- index.html, projetos.html, cadastro.html: site multipagina
+- app.html + js/spa.js: SPA com rotas hash e templates dinamicos
+- feedback-demo.html: badges, alertas, toast e modal
+- css/style.css: design system, Grid/Flexbox, responsividade e acessibilidade
+- js/script.js: mascaras, ViaCEP, menu hamburger, localStorage
+- assets/images/: midias PNG/JPG
 
-## Observação
-As informações de contato e os dados institucionais são fictícios e servem apenas para demonstração acadêmica.
+## Acessibilidade
+- Labels associados, fieldset/legend, aria-label/aria-expanded no menu
+- :focus-visible, contraste de cores institucionais, .visually-hidden
 
-## Validações
-O formulário utiliza `required`, `minlength`, `maxlength`, `pattern`, tipos HTML5 e `checkValidity()`/`reportValidity()` no navegador.
+## Controle de versao
+- Git com commits incrementais
+- Remote GitHub: felipew765-dev/new-ways
+
+## Observacao
+Informacoes de contato e dados institucionais sao ficticios (demonstracao academica).
