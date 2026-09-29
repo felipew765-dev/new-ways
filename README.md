@@ -1,5 +1,7 @@
 # Projeto Novos Caminhos
 
+work-facul
+
 Projeto acadêmico de front-end desenvolvido para a Experiência Prática I.
 
 ## Estrutura
