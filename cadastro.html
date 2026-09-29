@@ -31,8 +31,9 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="formulario-titulo">
       <div class="container form-layout">
+        <h2 id="formulario-titulo" class="visually-hidden">Formulário de cadastro</h2>
         <form id="cadastroForm" novalidate>
           <fieldset>
             <legend>Dados pessoais</legend>
@@ -62,7 +63,7 @@
                 <input id="cep" type="text" name="cep" required inputmode="numeric" maxlength="9" pattern="\d{5}-\d{3}" placeholder="00000-000" autocomplete="postal-code">
               </label>
               <label class="wide" for="endereco">Endereço
-                <input id="endereco" type="text" name="endereco" required maxlength="160" autocomplete="street-address" placeholder="Rua, número e complemento">
+                <input id="endereco" type="text" name="endereco" required maxlength="160" autocomplete="address-line1" placeholder="Rua, número e complemento">
               </label>
               <label for="cidade">Cidade
                 <input id="cidade" type="text" name="cidade" required maxlength="80" autocomplete="address-level2" placeholder="Sua cidade">
